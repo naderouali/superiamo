@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Profile Management Platform
+
+This project is a profile management web application built with Next.js, React, and MongoDB. Users can view and update their profiles, validate addresses, and securely store their data in MongoDB. This project includes Google OAuth2 authentication, address validation, and user data validation.
+
+## Features
+
+- **User Authentication**: Login via Google using OAuth2.
+- **Profile Management**: Users can view, edit, and validate profile details such as address and birthdate.
+- **Address Validation**: Address must be within 50 km of Paris for it to be saved.
+- **MongoDB Integration**: User profiles are saved and managed in MongoDB.
+- **UI/UX Design**: Styled with CSS for a responsive and clean user interface.
+
+---
+
+## Technologies Used
+
+- **Frontend**: Next.js, React, CSS
+- **Backend**: Next.js API Routes, Node.js
+- **Database**: MongoDB (via Mongoose)
+- **Authentication**: Google OAuth2
+- **Utilities**: Axios for API requests, date formatting
+
+---
+
+## Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js** (v14+)
+- **MongoDB** (local or cloud)
+- **Google OAuth2 Credentials**
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
 
 ```bash
+git clone https://github.com/naderouali/superiamo.git
+cd superiamo
+
+### 2. Install Dependencies
+
+npm install
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
+
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+MONGODB_URI=your-mongodb-uri
+
+### 4. Run MongoDB Server
+
+If using a local MongoDB server, ensure it is running before starting the application.
+
+### 5. Start the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+- **/pages/api**: Backend API routes, including profile and address validation.
+- **/pages/profile**: Profile management page with form inputs.
+- **/lib**: Custom helper functions like `calculateDistance`.
+- **/components**: Reusable UI components.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Profile Management
 
-## Deploy on Vercel
+1. Sign in using your Google account.
+2. View and edit profile details, including first name, last name, birthdate, address, and phone number.
+3. **Address Validation**: Enter an address and click "Validate Address." The address must be within 50 km of Paris to save.
+4. Save changes and log out using the provided buttons.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Endpoints
+
+- **POST /api/profile/update-profile**: Updates user profile information.
+- **POST /api/validate-address**: Validates if the provided address is within 50 km of Paris.
+
+---
+
+## Styling
+
+The app uses modular CSS for component styling. To modify styles, edit the CSS files in the **/styles** folder.
+
+
+---
+
+## Acknowledgments
+
+- Thanks to [API Adresse](https://adresse.data.gouv.fr/api-doc/adresse) for geolocation data.
