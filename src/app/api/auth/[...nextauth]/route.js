@@ -10,37 +10,54 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, profile }) {
-      await dbConnect();
+      try {
+        await dbConnect();
 
-      const existingUser = await User.findOne({ email: user.email });
+        const existingUser = await User.findOne({ email: user.email });
 
-      if (!existingUser) {
-        await User.create({
-          email: user.email,
-          firstName: profile.given_name || '',
-          lastName: profile.family_name || '',
-          birthdate: '', 
-          address: '',
-          phoneNumber: '',
-        });
+        if (!existingUser) {
+          await User.create({
+            email: user.email,
+            firstName: profile.given_name || '',
+            lastName: profile.family_name || '',
+            birthdate: '', 
+            address: '',
+            phoneNumber: '',
+          });
+        }
+
+        return true; 
+      } catch (error) {
+        console.error('Error during sign-in:', error);
+        return false;
       }
-
-      return true;
     },
 
     async session({ session, token, user }) {
-      const userData = await User.findOne({ email: session.user.email });
-      session.user = {
-        ...session.user,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        birthdate: userData.birthdate,
-        address: userData.address,
-        phoneNumber: userData.phoneNumber,
-      };
-      return session;
+      try {
+        await dbConnect();
+
+        const userData = await User.findOne({ email: session.user.email });
+
+        if (userData) {
+          session.user = {
+            ...session.user,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            birthdate: userData.birthdate,
+            address: userData.address,
+            phoneNumber: userData.phoneNumber,
+          };
+        }
+
+        return session; 
+      } catch (error) {
+        console.error('Error during session callback:', error);
+        return session; 
+      }
     },
   },
 });
