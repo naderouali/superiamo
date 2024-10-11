@@ -14,7 +14,7 @@ This project is a profile management web application built with Next.js, React, 
 
 ## Screenshot
 
-![Profile Page Screenshot](assets/Screenshot.png)
+![Profile Page Screenshot](src/assets/Screenshot.png)
 
 ---
 
