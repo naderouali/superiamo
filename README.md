@@ -12,6 +12,12 @@ This project is a profile management web application built with Next.js, React, 
 
 ---
 
+## Screenshot
+
+![Profile Page Screenshot](assets/Screenshot.png)
+
+---
+
 ## Technologies Used
 
 - **Frontend**: Next.js, React, CSS
