@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f3f4f6; /* Light gray */
-  padding: 2rem; /* Add padding to keep spacing consistent */
+  background-color: #f3f4f6; 
+  padding: 2rem;
 }
 
 .form {
@@ -15,13 +15,13 @@
   width: 100%;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem; /* Space between form and logout button */
+  margin-bottom: 1.5rem;
 }
 
 .title {
   font-size: 1.75rem;
   font-weight: bold;
-  color: #2374e5; /* Blue accent */
+  color: #2374e5;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -29,30 +29,30 @@
 .label {
   display: block;
   font-size: 0.875rem;
-  color: #4b5563; /* Gray */
+  color: #4b5563; 
   margin-bottom: 0.5rem;
 }
 
 .input {
   width: 100%;
   padding: 0.5rem 1rem;
-  border: 1px solid #e5e7eb; /* Light border */
+  border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
   font-size: 1rem;
-  color: #1f2937; /* Dark gray */
+  color: #1f2937; 
   margin-bottom: 1rem;
   transition: border-color 0.2s;
 }
 
 .input:focus {
-  border-color: #2374e5; /* Blue on focus */
+  border-color: #2374e5; 
   outline: none;
 }
 
 .button {
   display: inline-block;
   width: 100%;
-  background-color: #2374e5; /* Blue accent */
+  background-color: #2374e5; 
   color: white;
   font-weight: bold;
   padding: 0.75rem;
@@ -65,7 +65,7 @@
 }
 
 .button:hover {
-  background-color: #1e5fb8; /* Darker blue for hover */
+  background-color: #1e5fb8; 
 }
 
 .buttonGroup {
@@ -86,12 +86,12 @@
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
-  width: 48%; /* Adjust width to be beside the save button */
+  width: 48%; 
 }
 
 .logoutButton:hover {
-  background-color: #f0f0f0; /* Light gray for hover */
-  color: #1e5fb8; /* Darker blue for hover */
+  background-color: #f0f0f0; 
+  color: #1e5fb8;
 }
 
 .addressValidationContainer {
@@ -101,17 +101,17 @@
 
 .addressValidation {
   display: flex;
-  align-items: center; /* Aligns the input field and button */
+  align-items: center; 
   gap: 10px;
 }
 
 .validateButton {
-  height: 35px; /* Matches the height of the input field */
+  height: 35px; 
   margin-top: -10px;
 }
 
 .validationMessage {
-  color: rgb(206, 0, 0); /* Choose your preferred color */
+  color: rgb(206, 0, 0); 
   margin-top: 5px;
   margin-bottom: 10px;
 }

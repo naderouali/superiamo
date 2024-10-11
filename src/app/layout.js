@@ -1,4 +1,4 @@
-'use client';  // This tells Next.js to treat this file as a client component
+'use client'; 
 
 import localFont from "next/font/local";
 import { SessionProvider } from "next-auth/react";

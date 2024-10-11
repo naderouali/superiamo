@@ -10,8 +10,8 @@ export default function Profile() {
   const { data: session } = useSession();
   const router = useRouter();
   const [validationMessage, setValidationMessage] = useState('');
-  const [isAddressValid, setIsAddressValid] = useState(false); // State for address validity
-  const [addressValidated, setAddressValidated] = useState(false); // State for whether the address was validated
+  const [isAddressValid, setIsAddressValid] = useState(false);
+  const [addressValidated, setAddressValidated] = useState(false); 
 
   const [user, setUser] = useState({
     firstName: '',
@@ -47,10 +47,9 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Address Validated: ", addressValidated); // Debugging log
-    console.log("Is Address Valid: ", isAddressValid); // Debugging log
+    // console.log("Address Validated: ", addressValidated); 
+    // console.log("Is Address Valid: ", isAddressValid); 
 
-    // If address hasn't been validated or is invalid, prevent submission
     if (!addressValidated || !isAddressValid) {
       alert('Please validate the address before saving changes.');
       return;
@@ -81,20 +80,20 @@ export default function Profile() {
   const handleValidateAddress = async () => {
     try {
       const response = await axios.post('/api/validate-address', { address: user.address });
-      const isValid = response.data.isValid; // Now the response includes isValid
+      const isValid = response.data.isValid; 
   
-      setIsAddressValid(isValid); // Set the valid state
-      setAddressValidated(true); // Mark as validated regardless of result
+      setIsAddressValid(isValid); 
+      setAddressValidated(true); 
       setValidationMessage(response.data.message);
   
-      console.log("Validation response: ", response.data.message); // Debugging log
-      console.log("Is valid: ", isValid); // Debugging log
+    //   console.log("Validation response: ", response.data.message);
+    //   console.log("Is valid: ", isValid); 
     } catch (error) {
       setIsAddressValid(false);
-      setAddressValidated(true); // Mark as validated to prevent re-validation requests
+      setAddressValidated(true);
       setValidationMessage(error.response?.data?.message || 'Error occurred');
   
-      console.log("Validation Error: ", error.response?.data?.message || 'Error occurred'); // Debugging log
+      console.log("Validation Error: ", error.response?.data?.message || 'Error occurred');
     }
   };
 
@@ -123,7 +122,7 @@ export default function Profile() {
                 name="email"
                 value={user.email}
                 className={styles.input}
-                disabled // This disables the input field
+                disabled
             />
         </div>
 

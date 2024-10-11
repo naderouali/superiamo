@@ -1,4 +1,3 @@
-// In /pages/api/validate-address.js
 import axios from 'axios';
 import { calculateDistance } from '@/lib/calculateDistance';
 
@@ -30,11 +29,9 @@ export default async function handler(req, res) {
     const addressData = features[0];
     const [lon, lat] = addressData.geometry.coordinates;
 
-    // Paris coordinates (center)
     const parisLat = 48.8566;
     const parisLon = 2.3522;
 
-    // Calculate the distance from Paris
     const distance = calculateDistance(parisLat, parisLon, lat, lon);
 
     if (distance <= 50) {

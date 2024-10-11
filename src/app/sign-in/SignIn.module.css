@@ -1,11 +1,9 @@
-/* SignIn.module.css */
-
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f3f4f6; /* Gray-100 */
+    background-color: #f3f4f6; 
   }
   
   .card {
@@ -21,19 +19,19 @@
   .logo {
     font-size: 1.875rem;
     font-weight: bold;
-    color: #2374e5; /* Blue accent color */
+    color: #2374e5; 
     margin-bottom: 1.5rem;
   }
   
   .title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1f2937; /* Gray-800 */
+    color: #1f2937;
     margin-bottom: 1rem;
   }
   
   .description {
-    color: #4b5563; /* Gray-600 */
+    color: #4b5563; 
     margin-bottom: 2rem;
   }
   
@@ -42,7 +40,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #2374e5; /* Blue accent color */
+    background-color: #2374e5; 
     color: white;
     font-weight: 600;
     padding: 0.5rem 1rem;
@@ -52,7 +50,7 @@
   }
   
   .signInButton:hover {
-    background-color: #1e5fb8; /* Darker shade of blue for hover */
+    background-color: #1e5fb8;
   }
   
   .icon {

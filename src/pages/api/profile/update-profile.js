@@ -8,16 +8,14 @@ export default async function handler(req, res) {
 
       const { email, firstName, lastName, birthdate, address, phoneNumber } = req.body;
 
-      // Ensure email is provided
       if (!email) {
         return res.status(400).json({ message: 'Email is required for updating profile' });
       }
 
-      // Find the user by email and update their profile
       const updatedUser = await User.findOneAndUpdate(
         { email },
         { firstName, lastName, birthdate, address, phoneNumber },
-        { new: true } // This returns the updated document
+        { new: true } 
       );
 
       if (!updatedUser) {
